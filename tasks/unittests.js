@@ -10,7 +10,6 @@ module.exports = function (grunt) {
   var path = require('path');
   var previousGlobalKeys = [];
   var requireUncache = require('require-uncache');
-  var React;
 
   // Useful global shortcuts available in every test.
   global.assert = require('chai').assert;
@@ -48,16 +47,16 @@ module.exports = function (grunt) {
       require(bootstrapPath);
       require(depsPath);
 
-      // Lazy preload React.
-      // TODO: Don't embed React. It sucks in Node.js. Fix it for Closure.
-      goog.require('este.thirdParty.react');
-      React = React || goog.global.React;
-
       // Mock browser.
       var doc = jsdom();
       global.window = doc.parentWindow;
       global.document = doc.parentWindow.document;
-      global.React = global.window.React = React;
+      global.navigator = doc.parentWindow.navigator;
+
+      // React and ReactTestUtils have to required after new jsdom is created.
+      // https://github.com/facebook/react/issues/1287
+      global.React = require('react');
+      global.TestUtils = require('react/addons').addons.TestUtils;
 
       var testFiles = this.filesSrc;
 
