@@ -1,8 +1,14 @@
 # grunt-este [![Build Status](https://secure.travis-ci.org/steida/grunt-este.png?branch=master)](http://travis-ci.org/steida/grunt-este) [![Dependency Status](https://david-dm.org/steida/grunt-este.png)](https://david-dm.org/steida/grunt-este) [![devDependency Status](https://david-dm.org/steida/grunt-este/dev-status.png)](https://david-dm.org/steida/grunt-este#info=devDependencies)
 
-## Update!
+## Intro
+Original autor ended support for grunt-este package because he migrated to gulp.js (see. https://github.com/steida/grunt-este). And because I'm using `grunt-este` at some projects and need some modifications, I tried to made this fork.
 
-I migrated Este to [gulp.js](http://gulpjs.com). Please switch to new [Este](https://github.com/steida/este).
+## Fork differencies ##
+  
+### esteUnitTests ###
+  - doesnt require `este-library` with `este.thirdParty.react` to run
+  - provides some useful utilities for tests like `expect` or `TestUtils` (which is `ReactTestUtils` from `react` package)
+  - suports BDD syntax of writing test queries ([should](http://chaijs.com/api/bdd/) and [sinon-chai](http://chaijs.com/plugins/sinon-chai))
 
 ## Tasks
 
