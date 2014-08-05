@@ -10,10 +10,18 @@ module.exports = function (grunt) {
   var path = require('path');
   var previousGlobalKeys = [];
   var requireUncache = require('require-uncache');
+  var chai = require('chai');
+  var sinonChai = require('sinon-chai');
 
   // Useful global shortcuts available in every test.
-  global.assert = require('chai').assert;
+  global.assert = chai.assert;
+  global.expect = chai.expect;
   global.sinon = require('sinon');
+
+  // allow bdd test syntax with `should`
+  chai.should();
+  // sinon used with chai syntax
+  chai.use(sinonChai);
 
   grunt.registerMultiTask('esteUnitTests', 'Super-fast unit testing for Google Closure with Mocha in Node.js',
     function() {
