@@ -29,7 +29,8 @@
     "sinon": "^1.10.3",
     "sinon-chai": "^2.5.0",
     "temporary": "~0.0.5",
-    "wrench": "~1.5.1"
+    "wrench": "~1.5.1",
+    "react": "~0.10.0"
   },
   "devDependencies": {
     "grunt": "~0.4.2",
